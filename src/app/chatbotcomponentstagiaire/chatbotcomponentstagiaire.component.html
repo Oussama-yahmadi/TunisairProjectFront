@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Corona Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/assets/admin/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/assets/admin/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/assets/admin/vendors/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="/assets/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="/assets/admin/vendors/owl-carousel-2/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/admin/vendors/owl-carousel-2/owl.theme.default.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="/assets/admin/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="/assets/admin/images/favicon.png" />
+  <style>
+    /* Additional styles */
+    body {
+      background-color: #121212; /* Fond sombre pour contraster avec le contenu */
+    }
+
+    .container-fluid {
+      padding: 20px;
+      margin: 0px;
+    }
+
+    .chat-container {
+      background-color: #191c24;
+      color: white;
+      border-radius: 10px; /* Coins arrondis */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Ombre pour le cadre */
+      padding: 20px; /* Espace intérieur */
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .message.user .card {
+      background-color: #007bff;
+    }
+
+    .message.chatbot .card {
+      background-color: #28a745;
+    }
+
+    .message .card {
+      color: white;
+      width: 100%;
+      border-radius: 10px; /* Coins arrondis pour les messages */
+    }
+
+    .message .card-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #343a40;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .message .card-body {
+      padding: 10px;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .input-container input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    .input-container button {
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    .chatbot-message {
+      margin-top: 20px; /* Espace au-dessus du message de chatbot */
+    }
+
+    .chatbot-intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .chatbot-icon {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .chatbot-bubble {
+      background-color: #4A90E2;
+      color: #fff;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .message-background {
+      background-color: rgba(74, 144, 226, 0.9); /* Couleur avec opacité */
+      color: azure;
+      padding: 15px;
+      border-radius: 15px;
+      width: 250px;
+      font-size: 16px;
+      line-height: 1.4;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_sidebar.html -->
+    <app-navbar-stagiaire></app-navbar-stagiaire>
+
+    <!-- partial -->
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <section style="background-color:#191c24;">
+          <div class="container py-5">
+            <div class="row">
+              <div class="col-md-6 col-lg-7 col-xl-8">
+                <ul class="list-unstyled chat-container">
+                  <li *ngFor="let message of messages" class="message d-flex justify-content-between mb-4" [ngClass]="{'user': message.sender === 'user', 'chatbot': message.sender === 'chatbot'}">
+                    <div class="card w-100">
+                      <div class="card-header d-flex justify-content-between p-3">
+                        <p class="fw-bold mb-0">{{ message.sender === 'user' ? 'Moi' : 'Chatbot' }}</p>
+                        <p class="text-muted small mb-0"><i class="far fa-clock"></i> Just now</p>
+                      </div>
+                      <div class="card-body">
+                        <p class="mb-0">{{ message.text }}</p>
+                      </div>
+                    </div>
+                  </li>
+                  <div class="chatbot-intro">
+                   
+                    
+                    <div class="chatbot-message">
+                      <div class="message-background">
+                        <p>Bonjour ! Je suis là pour vous aider. Posez-moi vos questions sur les stages, les rapports, ou tout autre sujet.</p>
+                        <p>Cliquez sur "Démarrer la discussion" pour commencer !</p>
+                      </div>
+                    </div>
+                    <br>  <br> <br>
+                  
+                    <div class="chatbot-icon">
+                      <div class="chatbot-bubble">
+                        <span>💬</span>
+                      </div>
+                    </div>
+                  </div>
+                  <br> <br> <br>
+                  <li class="bg-white mb-3">
+                    <div class="form-outline">
+                      <input type="text" [(ngModel)]="userMessage" class="form-control" placeholder="Saisissez votre message...">
+                    </div>
+                  </li>
+                  <button type="button" class="btn btn-info btn-rounded float-end" (click)="sendMessage()">Envoyer</button>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/admin/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/assets/admin/vendors/chart.js/Chart.min.js"></script>
+  <script src="/assets/admin/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/assets/admin/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/assets/admin/js/off-canvas.js"></script>
+  <script src="/assets/admin/js/hoverable-collapse.js"></script>
+  <script src="/assets/admin/js/misc.js"></script>
+  <script src="/assets/admin/js/settings.js"></script>
+  <script src="/assets/admin/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/assets/admin/js/dashboard.js"></script>
+  <!-- End custom js for this page -->
+</body>
+</html>

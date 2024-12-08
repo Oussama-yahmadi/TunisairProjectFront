@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>Dashboard des Tâches</h1>
+  
+    <!-- Barre de recherche pour sélectionner le stagiaire -->
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Rechercher un stagiaire..."
+        [(ngModel)]="searchTerm"
+        (input)="filterStagiaires()"
+      />
+      <ul class="search-results" *ngIf="filteredStagiaires.length > 0">
+        <li
+          *ngFor="let stagiaire of filteredStagiaires"
+          (click)="selectStagiaire(stagiaire)"
+        >
+          {{ stagiaire.nom }} {{ stagiaire.prenom }}
+        </li>
+      </ul>
+    </div>
+  
+    <!-- Statistiques -->
+    <div *ngIf="stagiaireSelected" class="stats">
+      <h3>Satisfaction</h3>
+      <canvas id="counterCanvas" width="250" height="250"></canvas>
+    </div>
+  
+    <!-- Graphiques -->
+    <div *ngIf="stagiaireSelected" class="charts">
+      <div class="chart-container">
+        <h3>Répartition des Tâches</h3>
+        <canvas id="pieChart"></canvas>
+      </div>
+  
+      <div class="chart-container">
+        <h3>Compétences et Performances</h3>
+        <canvas id="radarChart"></canvas>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,29 @@
+<div class="form-group">
+    <label for="product">user choisi:</label>
+    <h3>{{user.nom}}</h3>
+  
+    <!-- <img [src]="produit.retriev" alt="Product Image" class="image"> -->
+  </div>
+  
+  <form  >
+      <div class="form-group">
+        <label for="name">Nom du client:</label>
+        <input type="text" class="form-control" id="NomClient" placeholder="{{user.nom}}"  readonly  required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="{{user.email}}"  readonly  required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Numéro de téléphone:</label>
+        <input type="tel" class="form-control" id="numero" placeholder="{{user.telephone}}"  readonly required>
+      </div>
+      <div class="form-group">
+        <label for="address">Adresse:</label>
+        <input type="text" class="form-control" id="adresse" placeholder="{{user.role}}"  readonly required>
+      </div>
+  
+     
+      <button type="submit" class="btn btn-primary" routerLink="/">verifier la sauvgarde de stagiaire  </button>
+    </form>
+  

@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/admin/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/assets/admin/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/admin/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/assets/admin/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <app-navbar></app-navbar>
+      
+      <!-- partial:partials/_sidebar.html -->
+     
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+       *
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Ajouter une offre</h4>
+        <p class="card-description"> Ajouter une offre  </p>
+        <form class="forms-sample" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="exampleInputName1">Titre</label>
+            <input type="text" class="form-control" id="exampleInputName1" placeholder="Name"   [(ngModel)]="offre.title" name="title">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail3">Duree</label>
+            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="duree"  [(ngModel)]="offre.duration" name="duration">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword4">Description</label>
+            <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Description" [(ngModel)]="offre.description" name="description">
+          </div>
+         
+       
+          <button type="submit" class="btn btn-primary mr-2">Submit</button>
+          <button class="btn btn-dark">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+
+
+  <script src="/assets/admin/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/assets/admin/vendors/chart.js/Chart.min.js"></script>
+  <script src="/assets/admin/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/assets/admin/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/assets/admin/js/off-canvas.js"></script>
+  <script src="/assets/admin/js/hoverable-collapse.js"></script>
+  <script src="/assets/admin/js/misc.js"></script>
+  <script src="/assets/admin/js/settings.js"></script>
+  <script src="/assets/admin/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/assets/admin/js/dashboard.js"></script>
+  <!-- End custom js for this page -->
+</body>
+</html>

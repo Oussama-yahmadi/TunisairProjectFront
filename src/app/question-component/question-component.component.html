@@ -1,0 +1,62 @@
+<!-- <div *ngIf="questions.length > 0 && currentQuestionIndex < questions.length">
+    <h2>{{ questions[currentQuestionIndex]?.question }}</h2>
+    <ul>
+      <li *ngFor="let option of questions[currentQuestionIndex]?.incorrectAnswers">
+        <label>
+          <input type="radio" [(ngModel)]="selectedAnswer" [value]="option">
+          {{ option }}
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" [(ngModel)]="selectedAnswer" [value]="questions[currentQuestionIndex]?.correctAnswer">
+          {{ questions[currentQuestionIndex]?.correctAnswer }}
+        </label>
+      </li>
+    </ul>
+    <button (click)="checkAnswer()">Vérifier la réponse</button>
+    <button (click)="nextQuestion()">Question suivante</button>
+  </div>
+  <div *ngIf="questions.length === 0 || currentQuestionIndex >= questions.length">
+    <p>Chargement des questions en cours...</p>
+  </div>
+   -->
+
+   <!-- <div *ngIf="questions.length > 0 && currentQuestionIndex < questions.length">
+    <h2>{{ questions[currentQuestionIndex]?.question }}</h2>
+    <ul>
+      <li *ngFor="let option of questions[currentQuestionIndex]?.incorrectAnswers">
+        <label>
+          <input type="radio" [(ngModel)]="selectedAnswer" [value]="option">{{ option }}
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" [(ngModel)]="selectedAnswer" [value]="questions[currentQuestionIndex]?.correctAnswer">
+          {{ questions[currentQuestionIndex]?.correctAnswer }}
+        </label>
+      </li>
+    </ul>
+    <button (click)="checkAnswer()">Vérifier la réponse</button>
+    <button (click)="nextQuestion()">Question suivante</button>
+  </div>
+  <div *ngIf="questions.length === 0 || currentQuestionIndex >= questions.length">
+    <p>Chargement des questions en cours...</p>
+  </div> -->
+  
+  <table>
+    <td *ngFor="let q of questions">
+      <tr>
+       qq
+
+      </tr>
+      <tr>
+        {{q.incorrectAnswers}}
+
+      </tr>
+      <tr>
+        {{q.correctAnswer}}
+      </tr>
+
+    </td>
+  </table>

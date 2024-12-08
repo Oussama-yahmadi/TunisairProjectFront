@@ -1,0 +1,172 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/admin/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/assets/admin/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/admin/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/assets/admin/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+    <app-navbar-tuteur></app-navbar-tuteur>
+
+
+
+
+
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+       
+
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"></h4>
+                <p class="card-description"> Reunions <code>Planifies</code>
+                </p>
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th> image </th>
+                        <th> Stagiaire </th>
+                        <th> titre </th>
+                        <th> date </th>
+                        <th> Verification </th>
+                        <th> Presence </th>
+                        <th> Ponctualité </th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let reunion of reunionsPlanifiees">
+                      <tr>
+                        <td class="py-1">
+                          <img src="/assets/images/faces-clipart/pic-1.png" alt="image">
+                        </td>
+                        <td>{{reunion.stagiaire.nom}} {{reunion.stagiaire.prenom}} </td>
+                      
+                        <td> {{reunion.titre}}</td>
+                        <td>{{reunion.date}} </td>
+                        
+                          <td>
+                            
+                            
+                            <i *ngIf="reunion.estAcceptee" class="fa fa-check" style="color: green;"></i>
+                           
+                          <div *ngIf="reunion.estRefuse" >
+                           <i class="fa fa-warning" style="color: red;" ></i>
+                          </div>
+                              
+                           <div *ngIf="!reunion.estAcceptee && !reunion.estRefuse" class="spinner"></div>
+                        </td>
+                        
+                        <td>
+
+                          <div *ngIf="!reunion.estAcceptee && !reunion.estRefuse" >
+                            <i class="fa fa-ban" style="color: red" ></i>
+                           </div>
+
+                          <div *ngIf="reunion.estRefuse " >
+                            <i class="fa fa-ban" style="color: red;" ></i>
+                           </div>
+
+
+      
+                           <div *ngIf="!reunion.estRefuse ">         
+    <button *ngIf="reunion.estAcceptee && !reunion.presence" class="btn btn-primary"  (click)="setPresence(reunion.idReunion)">Marquer présence</button>
+    <span *ngIf="reunion.presence">Present </span>  
+                           </div>
+
+
+                        </td>
+                        <td> 
+                          <div *ngIf="!reunion.estAcceptee && !reunion.estRefuse" >
+                            <i class="fa fa-ban" style="color: red" ></i>
+                           </div>
+                          <div *ngIf="reunion.estRefuse" >
+                            <i class="fa fa-ban" style="color: red;" ></i>
+                           </div>
+                           <div *ngIf="!reunion.estRefuse">
+                            <!-- Bouton pour marquer la ponctualité si la réunion est acceptée et la ponctualité n'est pas encore marquée -->
+    <button *ngIf="reunion.estAcceptee && !reunion.ponctuel" class="btn btn-primary"  (click)="setPonctualite(reunion.idReunion)">Marquer ponctualité</button>
+    
+    <!-- Affichage du statut de la ponctualité -->
+    <span *ngIf="reunion.ponctuel">{{ reunion.ponctuel }}</span>
+                           </div>
+                        </td>
+                      </tr>
+                     
+                     
+                      
+                    
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      
+
+</div>
+    </div>
+
+
+  <script src="/assets/admin/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/assets/admin/vendors/chart.js/Chart.min.js"></script>
+  <script src="/assets/admin/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/assets/admin/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/assets/admin/js/off-canvas.js"></script>
+  <script src="/assets/admin/js/hoverable-collapse.js"></script>
+  <script src="/assets/admin/js/misc.js"></script>
+  <script src="/assets/admin/js/settings.js"></script>
+  <script src="/assets/admin/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/assets/admin/js/dashboard.js"></script>
+  <!-- End custom js for this page -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

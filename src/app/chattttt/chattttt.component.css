@@ -1,0 +1,205 @@
+/* Variables for colors */
+:root {
+    --primary-color: #605ced;
+    --secondary-color: #4646f7;
+    --background-color: #fff;
+    --text-color: #fafafa;
+    --base-font-size: 20px;
+}
+
+/* Message bubble styles */
+.messages {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-bottom: 125px;
+    padding-top: 50px;
+}
+
+.messages::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.message-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.user-message-container {
+    display: flex;
+    justify-self: right;
+    flex-direction: row-reverse;
+    justify-self: flex-end;
+}
+
+.bot-message-container {
+    display: flex;
+    width: fit-content;
+    justify-self: flex-start;
+}
+
+.user-message-text,
+.bot-message-text {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    height: fit-content;
+    width: fit-content;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-message-text {
+    background: linear-gradient(to left bottom, #8989FA, #9589FA, #a6a3f5);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 10px 10px 0 10px;
+    clear: both;
+}
+
+.user-img {
+    width: 70px;
+    margin-top: 15px;
+    border-radius: 50px;
+    border: 5px solid var(--secondary-color);
+    padding: 5px;
+    margin: 0 10px;
+}
+
+.bot-img, .user-img {
+    width: 70px;
+    height: 70px !important;
+    margin-top: 15px;
+    border-radius: 50px;
+    border: 5px solid var(--secondary-color);
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.bot-message-text {
+    background: linear-gradient(to right bottom, var(--secondary-color), var(--primary-color), #605ced);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 10px 10px 10px 0;
+}
+
+/* Input container styles */
+.input-container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    align-self: center;
+    bottom: 10%;
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.input-container button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px !important;
+    margin: 0 0 0 10px;
+    position: sticky;
+    bottom: 15%;
+    right: 2%;
+    cursor: pointer;
+}
+
+.input-container button .bx-up-arrow-alt {
+    font-size: 25px;
+}
+
+.input-container textarea {
+    flex: 1;
+    padding: 0px;
+    border: none;
+    color: var(--primary-color);
+    border-radius: 5px;
+    margin: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: transparent;
+    outline: none;
+    resize: none;
+}
+
+.input-container textarea::placeholder {
+    color: var(--primary-color);
+    opacity: 0.6;
+}
+
+.input-container textarea:focus {
+    height: auto;
+}
+
+.gradient-border {
+    border: 4px solid var(--primary-color);
+    border-radius: 25px;
+}
+
+/* Animation for message bubbles */
+.message-enter-active,
+.message-leave-active {
+    transition: all 0.5s;
+}
+
+.message-enter,
+.message-leave-to {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+/* Styles for the chat container */
+.chat-container {
+    max-width: 98%;
+    margin: 0;
+    padding: 30px;
+    height: 100vh;
+    background-color: var(--background-color);
+    border: none;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    font-size: var(--base-font-size);
+}
+
+/* Styles for the error message */
+.error-message {
+    background-color: #FF5733;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    clear: both;
+}
+
+/* Styles for the loading message */
+.loading-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive font size */
+@media screen and (min-width: 768px) {
+    .chat-container {
+        font-size: calc(var(--base-font-size) + 2px);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .chat-container {
+        font-size: calc(var(--base-font-size) - 2px);
+    }
+}
+
+/* Button and input styles */
+input[type="text"],
+button {
+    padding: 10px;
+    font-size: var(--base-font-size);
+}

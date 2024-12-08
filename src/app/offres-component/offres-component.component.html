@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+    
+   </head>
+   <body >
+      <!-- header section start -->
+      <div class="header_section">
+         <div class="header_main">
+            <div class="mobile_menu">
+               <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <div class="logo_mobile"><a href="index.html"><img src="images/logo.png"></a></div>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                           <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="watchs.html">Watchs</a>
+                        </li>
+                        <li class="nav-item active">
+                           <a class="nav-link " href="testimonial.html">Testimonial</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link " href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link " href="#"><img src="images/search-icon.png"></a>
+                        </li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+            <div class="container-fluid">
+                <div class="logo"><a href="index.html"><img class="logo" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/81693834348429.56cd65695218c.png"></a></div>
+               <div class="menu_main">
+                  <ul>
+                     <li ><a href="index.html">Acceuil</a></li>
+                     <li><a href="about.html"routerLink="/">A propos</a></li>
+                     <li class="active"><a href="watchs.html" routerLink="/offres" >Consulter nos offres de stage</a></li>
+                     <li><a href="testimonial.html" routerLink="/demande" >Demander Condidature</a></li>
+                     <li><a href="contact.html" routerLink="/login">Se connecter</a></li>
+                     <li><a href="#"><img src="/assets/images/search-icon.png"></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- header section end -->
+      <!-- background bg start -->
+      <div class="background_bg">
+        <!-- testimonial section start -->
+         <div class="testimonial_section layout_padding">
+            <div class="container">
+               <h1 class="watchs_taital">03<br>Nos offres de Stage </h1>
+               <div class="container">
+               <div class="testimonial_section_2" class="item" *ngFor="let offre of offres">
+
+                  <div class="row"  >
+                     
+                     <div class="col-md-6">
+                        <div class="box_main">
+                           <p class="testimonial_text">{{offre.description}}</p>
+                        </div>
+                        <div class="client_main">
+                           <div class="client_left">
+                              <div class="client_img"><img src="images/client-img.png"></div>
+                           </div>
+                           <div class="client_right">
+                              <h6 class="client_name">{{offre.title}}</h6>
+                              <p class="customer_text">{{offre.duration}}</p> <br>
+                              <button type="submit" class="btn btn-danger" routerLink="/demande" style="color: aqua;">demander candidature</button>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- <div class="col-md-6">
+                        <div class="box_main">
+                           <p class="testimonial_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugia</p>
+                        </div>
+                        <div class="client_main">
+                           <div class="client_left">
+                              <div class="client_img"><img src="images/client-img1.png"></div>
+                           </div>
+                           <div class="client_right">
+                              <h6 class="client_name">Jumini Kiri</h6>
+                              <p class="customer_text">Customer</p>
+                           </div>
+                        </div>
+                     </div> -->
+                  </div>
+               </div>
+            </div>
+               <div class="seemore_bt_1"><a href="#">See More</a></div>
+            </div>
+         </div>
+         <!-- testimonial section end -->
+      </div>
+      <!-- background bg end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+        <div class="container">
+           <h3 class="follow_text">Follow Now</h3>
+           <div class="social_icon">
+              <ul>
+                 <li><a href="https://www.facebook.com/TUNISAIR.OFFICIELLE"><img src="/assets/images/fb-icon.png"></a></li>
+                 <li><a href="https://www.instagram.com/tunisair_officiel/?hl=fr"><img src="/assets/images/twitter-icon.png"></a></li>
+                 <li><a href="#"><img src="/assets/images/linkedin-icon.png"></a></li>
+                 <li><a href="#"><img src="/assets/images/instagram-icon.png"></a></li>
+                 <li><a href="#"><img src="/assets/images/youtub-icon.png"></a></li>
+              </ul>
+           </div>
+           <div class="location_main">
+              <div class="location_left">
+                 <div class="call_text"><a href="#"><img src="/assets/images/map-icon.png"><span class="call_padding">Siège social de Tunisair Charguia II 2035 Tunis - Carthage, Tunis, Tunisia</span></a></div>
+              </div>
+              <div class="location_middle">
+                 <div class="call_text"><a href="#"><img src="/assets/images/mail-icon.png"><span class="call_padding">recrutement@tunisair.com.tn</span></a></div>
+              </div>
+              <div class="location_right">
+                 <div class="call_text"><a href="#"><img src="/assets/images/call-icon.png"><span class="call_padding">Call +216 71942322</span></a></div>
+              </div>
+           </div>
+        </div>
+     </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a> Distribution by <a href="https://themewagon.com">ThemeWagon</a></p>
+         </div>
+      </div>
+      <!-- copyright section end -->
+         
+   </body>
+</html>

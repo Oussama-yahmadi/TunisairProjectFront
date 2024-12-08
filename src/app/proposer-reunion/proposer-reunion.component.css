@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Les éléments vont passer à la ligne si nécessaire */
+    justify-content: space-around; /* Espacement égal entre les éléments */
+    gap: 20px; /* Espacement entre les divs */
+  }
+  
+  .offer {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 30%; /* Chaque div prend 30% de la largeur du container */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .offer img {
+    width: 100%; /* L'image prend toute la largeur de la div */
+    height: auto;
+  }
+  
+  .offer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .offer p {
+    font-size: 1rem;
+    color: #666;
+  }
+  

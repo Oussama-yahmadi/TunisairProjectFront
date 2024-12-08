@@ -1,0 +1,124 @@
+<!-- src/app/components/propsed-reunions-stagiaires/propsed-reunions-stagiaires.component.html -->
+
+<div class="container-scroller">
+    <app-navbar-stagiaire></app-navbar-stagiaire>
+    <div class="container-fluid page-body-wrapper">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Réunions Proposées</h4>
+            <p class="card-description">Liste des réunions proposées aux stagiaires.</p>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Titre</th>
+                    <th>Date</th>
+                    <th>Vérification</th>
+                    <th>Notes</th> <!-- Added column for Notes -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let reunion of reunionsPlanifiees">
+                    <td>{{ reunion.titre }}</td>
+                    <td>{{ reunion.date | date: 'short' }}</td>
+                    <td>
+                      <ng-container *ngIf="reunion.estAcceptee; else checkRefuse">
+                        <i class="mdi mdi-check-circle-outline text-success"></i>
+                      </ng-container>
+                      <ng-template #checkRefuse>
+                        <ng-container *ngIf="reunion.estRefuse; else showButtons">
+                          <i class="mdi mdi-close-circle-outline text-danger"></i>
+                        </ng-container>
+                      </ng-template>
+                      <ng-template #showButtons>
+                        <button type="button" class="btn btn-success btn-fw" (click)="accepterReunion(reunion.idReunion)">Accepter</button>
+                        <button type="button" class="btn btn-danger btn-fw" (click)="refuserReunion(reunion.idReunion)">Refuser</button>
+                      </ng-template>
+                    </td>
+                    <td>
+                      <!-- Button to open view notes modal -->
+                      <button *ngIf="reunion.estAcceptee" type="button" class="btn btn-info btn-sm" (click)="openViewNotesModal(reunion.idReunion)" title="Afficher les notes">
+                        <i class="mdi mdi-eye-outline"></i>
+                      </button>
+                      <!-- Button to open add note modal -->
+                      <button *ngIf="reunion.estAcceptee" type="button" class="btn btn-primary btn-sm" (click)="openAddNoteModal(reunion)" title="Ajouter une note">
+                        <i class="mdi mdi-note-plus-outline"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Add Note Modal -->
+    <div class="modal" tabindex="-1" [ngClass]="{'show d-block': selectedReunion}" *ngIf="selectedReunion">
+      <div class="modal-dialog">
+        <div class="modal-content"  style="background-color: rgb(209, 206, 246);">
+          <div class="modal-header">
+            <h5 class="modal-title">Ajouter une note à "{{ selectedReunion.titre }}"</h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeAddNoteModal()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <textarea [(ngModel)]="newNoteContent" class="form-control" rows="4" placeholder="Écrire une note..." style="color: white;"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeAddNoteModal()" style="color: red;">Annuler</button>
+            <button type="button" class="btn btn-primary" (click)="addNote()" style="color: green;">Ajouter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- View Notes Modal -->
+    <div class="modal"  tabindex="-1" [ngClass]="{'show d-block': notesModalReunionId !== null}" *ngIf="notesModalReunionId !== null">
+      <div class="modal-dialog" style="background-color: bisque;">
+        <div class="modal-content" style="background-color: rgb(209, 206, 246);">
+          <div class="modal-header">
+            <h5 class="modal-title" style="color: #94a6f4;">Notes pour la réunion</h5>
+            <button type="button" class="close" aria-label="Close" (click)="closeViewNotesModal()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="color: aliceblue;" >
+            <div *ngIf="notesByReunion[notesModalReunionId] && notesByReunion[notesModalReunionId].length > 0">
+              <ul>
+                <li *ngFor="let note of notesByReunion[notesModalReunionId]">
+                  {{ note.content }} - <strong>ID Utilisateur:</strong> {{ note.userId }}
+                </li>
+              </ul>
+            </div>
+            <div *ngIf="!(notesByReunion[notesModalReunionId] && notesByReunion[notesModalReunionId].length > 0)">
+              <p>Aucune note disponible pour cette réunion.</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeViewNotesModal()" style="color: red;">Fermer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Optional: Modal backdrop -->
+    <div class="modal-backdrop fade show" *ngIf="selectedReunion || notesModalReunionId !== null"></div>
+  
+    <!-- Scripts -->
+    <script src="/assets/admin/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/assets/admin/vendors/chart.js/Chart.min.js"></script>
+    <script src="/assets/admin/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/assets/admin/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <script src="/assets/admin/js/off-canvas.js"></script>
+    <script src="/assets/admin/js/hoverable-collapse.js"></script>
+    <script src="/assets/admin/js/misc.js"></script>
+    <script src="/assets/admin/js/settings.js"></script>
+    <script src="/assets/admin/js/todolist.js"></script>
+    <script src="/assets/admin/js/dashboard.js"></script>
+  </div>

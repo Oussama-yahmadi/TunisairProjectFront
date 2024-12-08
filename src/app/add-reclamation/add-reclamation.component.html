@@ -1,0 +1,163 @@
+
+
+
+
+
+      
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/admin/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/assets/admin/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/admin/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/admin/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/assets/admin/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+      <app-navbar-stagiaire></app-navbar-stagiaire>
+
+
+
+
+
+    
+      
+      <div class="col-lg-12 grid-margin stretch-card">
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-5">
+                        <h2 class="heading-section">Contact Form #09</h2>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-md-12">
+                        <div class="wrapper">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8 mb-5">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-map-marker"></span>
+                                        </div>
+                                        <div class="text">
+                                        <p><span>Address:</span> Siège social de Tunisair Charguia II 2035 Tunis - Carthage, Tunis, Tunisia</p>
+                                      </div>
+                                  </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-phone"></span>
+                                        </div>
+                                        <div class="text">
+                                        <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                                      </div>
+                                  </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="dbox w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-paper-plane"></span>
+                                        </div>
+                                        <div class="text">
+                                        <p><span>Email:</span> <a href="mailto:info@yoursite.com">recrutement@tunisair.com.tn</a></p>
+                                      </div>
+                                  </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="contact-wrap">
+                                        <h3 class="mb-4 text-center" style="color: skyblue;">Reclamer !</h3>
+                                        <div id="form-message-warning" class="mb-4 w-100 text-center"></div> 
+                                  <div id="form-message-success" class="mb-4 w-100 text-center" style="color: white;">
+                                Votre message sera envoyé a l'administration et votre tuteur ,Merci
+                                  </div>
+                                        <form method="POST" id="contactForm" name="contactForm" class="contactForm" novalidate="novalidate" (ngSubmit)="onSubmit()">
+                                            <div class="row">
+                                              
+                                             
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control"  id="subject" placeholder="Objet" [(ngModel)]="reclamtion.objet" name="objet">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <textarea name="message" class="form-control" cols="30" rows="8" placeholder="Reclamtion"  [(ngModel)]="reclamtion.description" name="description" ></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="submit" value="Reclamer" class="btn btn-primary">
+                                                        <div class="submitting"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    
+        
+      </div>
+
+        
+      
+
+
+
+</div>
+    
+
+
+  <script src="/assets/admin/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/assets/admin/vendors/chart.js/Chart.min.js"></script>
+  <script src="/assets/admin/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/assets/admin/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/assets/admin/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/assets/admin/js/off-canvas.js"></script>
+  <script src="/assets/admin/js/hoverable-collapse.js"></script>
+  <script src="/assets/admin/js/misc.js"></script>
+  <script src="/assets/admin/js/settings.js"></script>
+  <script src="/assets/admin/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/assets/admin/js/dashboard.js"></script>
+  <!-- End custom js for this page -->
+</body>
+</html>
+
+
+
+      
