@@ -25,10 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/styles/icomoon.css",
-              "src/styles/normalize.css",
-              "src/styles/font-awesome.min.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
